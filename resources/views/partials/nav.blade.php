@@ -9,14 +9,14 @@
       </form>
       <ul class="collapse navbar-collapse justify-content-end">
           <li class="navbar-text">
-              <a href="" style="padding-right:25pt;">註冊</a>
+              <a href="{{ action('Auth\RegisterController@showRegistrationForm') }}" style="padding-right:25pt;">註冊</a>
           </li>
           @if(Auth::check())
           <li class="navbar-text">
               {{ Auth::user()->name }}
           </li>
           <li class="navbar-text">
-              <a href="{{ action('Auth\LoginController@showLoginForm') }}">登出</a>
+              <a href="{{ action('Auth\LoginController@logout') }}">登出</a>
           </li>
           @else
           <li class="navbar-text">
