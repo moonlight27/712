@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="{{ action('HomeController@index') }}">Hello Blog</a>
+      <a class="navbar-brand" href="{{ action('HomeController@index') }}">XZRD</a>
       <form class="form-inline my-2 my-lg-0" role="search" method="get" action="action('HomeController@search')">
      <div class="form-group">
         <input class="form-control mr-sm-2" type="text" placeholder="搜尋文章" name="keyword">
