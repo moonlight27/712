@@ -41,13 +41,21 @@ class PostController extends Controller
      $post=PostEloquent::findOrFail($id);
      return View::make('post.show',['post'=>$post]);
     }
-    public function edit(){
+    public function edit($id){
+    $post=PostEloquent::findOrfail($id);
+    $post_types=PostTypeEloquent::orderBy('name','ASC')->get();
+    return View::make('post.edit',['post=>$post','post_types=>$post_types']);
+    }
+    public function update(PostRequest $request,$id){
+    $post=PostEloquent::findOrFail($id);
+    $post->fill($request->all());
+    $post->save();
+    return Redirect::route('post.index');
 
     }
-    public function update(){
-
-    }
-    public function destory(){
-
+    public function destory($id){
+    $post=PostEloquent::findOrFail($id);
+    $post->delete();
+    return Redirect::route('post.index');
     }
 }
