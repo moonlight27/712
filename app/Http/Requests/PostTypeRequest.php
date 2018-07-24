@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+
 use Auth;
-class PostRequest extends FormRequest
+class PostTypeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +14,7 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-       return Auth::check();
+        return Auth::check();
     }
 
     /**
@@ -25,9 +26,7 @@ class PostRequest extends FormRequest
     {
         return [
             //
-            'title'=>'required|string',
-            'type'=>'required|integer',
-            'content'=>'required|string',
+            'name'=>'required|string'
         ];
     }
 }
