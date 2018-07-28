@@ -16,6 +16,7 @@
             @endif
             <div class="form-group">
                 <form method="POST" action="{{ action('Auth\LoginController@login') }}" style="padding-right:30px;">
+                    {{ csrf_field() }}
                     <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">信箱</label>
                             <div class="col-md-6">

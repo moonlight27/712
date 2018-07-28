@@ -40,7 +40,7 @@ class PostTypeController extends Controller
          $post_type->save();
          return Redirect::route('post.index');
     }
-    public function destory($id)
+    public function destroy($id)
     {
          $post_type=PostTypeEloquent::findOrFail($id);
          $post_type->posts()->delete();

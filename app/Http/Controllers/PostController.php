@@ -9,7 +9,7 @@ use App\PostType as PostTypeEloquent;
 
 use App\Http\Requests\PostRequest;
 
-use \Carbon\Carbon as Carbon;
+use Carbon\Carbon;
 
 use Auth;
 use View;
@@ -23,7 +23,7 @@ class PostController extends Controller
     }*/
     public function index()
     {
-        $posts=PostEloquent::orderBy('create_at','DESC')->paginate(5);
+        $posts=PostEloquent::orderBy('created_at','DESC')->paginate(5);
         $post_types=PostTypeEloquent::orderBy('name','ASC')->get();
         return View::make('post.index',['posts'=>$posts,'post_types'=>$post_types]);
     }
@@ -53,7 +53,7 @@ class PostController extends Controller
     return Redirect::route('post.index');
 
     }
-    public function destory($id){
+    public function destroy($id){
     $post=PostEloquent::findOrFail($id);
     $post->delete();
     return Redirect::route('post.index');

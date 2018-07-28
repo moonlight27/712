@@ -9,19 +9,19 @@
                 新文章
             </div>
             <div class="card-body">
-                <div class="container-fluid" style="padding:0;">
-                    <form style="margin-top:20px;" class="form-check form-check-inline" method="POST" action="{{ route('post.store') }}">
+                <div class="container-fluid" style="padding:0px;">
+                    <form style="margin-top:20px;"  method="POST" action="{{ route('post.store') }}">
                         {{ csrf_field() }}
-                        <div class="form-group">
-                            <label for="title" class="col-sm-2 control-label">標題</label>
+                        <div class="form-group row">
+                            <label for="title" class="col-sm-2" style="font-size:20px;">標題</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="title">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="type" class="col-sm-2 control-label">分類</label>
+                        <div class="form-group row">
+                            <label for="type" class="col-sm-2 col-form-label">分類</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="type">
+                                <select class="form-control" name="type" class="col-sm-2 col-form-label">
                                     @foreach($post_types as $post_type)
                                     <option value="{{ $post_type->id }}" >
                                         {{ $post_type->name }}
@@ -30,10 +30,10 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="content" class="col-sm-2 control-label">內文</label>
+                        <div class="form-group row">
+                            <label for="content" class="col-sm-2 col-form-label">內文</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" rows="25" name="content" style="resize:vertical;"></textarea>
+                                <textarea class="form-control" rows="10" name="content" style="resize:vertical;"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
